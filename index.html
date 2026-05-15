@@ -48,8 +48,9 @@
             gap: 12px;
         }
 
+        /* Ajuste na altura da logo para acomodar melhor o texto "Prefeitura de Mogi das Cruzes" */
         .logo-container img {
-            height: 45px;
+            height: 55px; 
             width: auto;
         }
 
@@ -57,6 +58,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-blue);
+            display: none; /* Oculto pois a nova imagem já possui texto */
         }
 
         /* --- HERO SECTION --- */
@@ -274,8 +276,7 @@
 
     <nav>
         <div class="logo-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Bras%C3%A3o_de_Mogi_das_Cruzes.svg/512px-Bras%C3%A3o_de_Mogi_das_Cruzes.svg.png" alt="Brasão de Mogi das Cruzes">
-            <span class="logo-text">Turismo Mogi</span>
+            <img src="brasao.png" alt="Prefeitura de Mogi das Cruzes">
         </div>
     </nav>
 
@@ -366,7 +367,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Todos os direitos reservados.</p>
+        <p>© 2026 Todos os direitos reservados.</p>
         <p>Desenvolvido por <strong>Katsusuke Yamazaki Filho</strong>.</p>
     </footer>
 
