@@ -201,6 +201,8 @@
         .card-content {
             padding: 25px;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-content h3 {
@@ -214,6 +216,28 @@
             font-size: 0.95rem;
             color: var(--text-gray);
             margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* ESTILO DO BOTÃO DO GOOGLE MAPS */
+        .map-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 16px;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .map-link:hover {
+            background-color: #e2e8f0;
+            color: var(--primary-blue);
         }
 
         .card-footer {
@@ -283,6 +307,7 @@
             <div class="card-content">
                 <h3>Largo do Carmo</h3>
                 <p>O Largo do Carmo abriga um dos conjuntos arquitetônicos coloniais mais valiosos do Estado de São Paulo. Formado pelas Igrejas da Ordem Primeira e da Ordem Terceira do Carmo, o complexo preserva a técnica de taipa de pilão. É um local de imenso valor histórico, tendo recebido figuras ilustres como Dom Pedro I em sua jornada rumo à Independência.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Largo+do+Carmo,+Mogi+das+Cruzes" target="_blank" class="map-link">📍 Ver no Google Maps</a>
             </div>
             <div class="card-footer">
                 <span>📍 Centro</span>
@@ -298,6 +323,7 @@
             <div class="card-content">
                 <h3>Praça da Matriz</h3>
                 <p>Oficialmente Praça Benedito Coronel Almeida, este é o ponto onde Mogi das Cruzes nasceu. A Catedral de Santana, reconstruída no início do século XX sobre o alicerce da antiga igreja, domina a paisagem. A praça é o centro nevrálgico da cidade, onde a fé, a cultura e o comércio se encontram há gerações.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Praça+Coronel+Benedito+Almeida,+Mogi+das+Cruzes" target="_blank" class="map-link">📍 Ver no Google Maps</a>
             </div>
             <div class="card-footer">
                 <span>📍 Centro</span>
@@ -313,6 +339,7 @@
             <div class="card-content">
                 <h3>Largo do Bom Jesus</h3>
                 <p>O Largo abriga o Santuário do Senhor Bom Jesus, um dos templos mais queridos da comunidade. É o palco principal das celebrações da centenária Festa do Divino Espírito Santo. A arquitetura do Santuário e a atmosfera do largo refletem a profunda religiosidade e o espírito festivo do povo mogiano.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Largo+do+Bom+Jesus,+Mogi+das+Cruzes" target="_blank" class="map-link">📍 Ver no Google Maps</a>
             </div>
             <div class="card-footer">
                 <span>📍 Área Central</span>
@@ -328,6 +355,7 @@
             <div class="card-content">
                 <h3>Praça Osvaldo Cruz</h3>
                 <p>Popularmente conhecida como Praça do Relógio, é um ponto de referência crucial próximo à estação ferroviária. O Relógio Monumental simboliza o progresso e a modernização de Mogi, servindo há décadas como ponto de encontro e testemunha silenciosa do crescimento acelerado da metrópole mogiana.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Praça+Osvaldo+Cruz,+Mogi+das+Cruzes" target="_blank" class="map-link">📍 Ver no Google Maps</a>
             </div>
             <div class="card-footer">
                 <span>📍 Estação</span>
