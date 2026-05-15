@@ -26,9 +26,10 @@
         body {
             background-color: var(--light-bg);
             color: var(--text-dark);
+            line-height: 1.6;
         }
 
-        /* --- NAVEGAÇÃO SUPERIOR --- */
+        /* --- NAVEGAÇÃO --- */
         nav {
             background-color: var(--white);
             padding: 1rem 5%;
@@ -58,11 +59,10 @@
             color: var(--primary-blue);
         }
 
-        /* --- SEÇÃO HERO (Destaque Principal) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            /* Usando um gradiente azul caso a imagem de fundo demore a carregar, simulando o site de referência */
-            background: linear-gradient(rgba(15, 76, 129, 0.6), rgba(15, 76, 129, 0.6)), url('matriz.jpg') center/cover no-repeat;
-            height: 500px;
+            background: linear-gradient(rgba(15, 76, 129, 0.7), rgba(15, 76, 129, 0.7)), url('matriz.jpg') center/cover no-repeat;
+            height: 450px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -81,19 +81,19 @@
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 600px;
+            max-width: 700px;
             font-weight: 300;
         }
 
-        /* --- BARRA FLUTUANTE (Simulando o buscador da referência) --- */
+        /* --- BARRA FLUTUANTE --- */
         .floating-bar {
             background: var(--white);
-            max-width: 800px;
+            max-width: 850px;
             width: 90%;
-            margin: -40px auto 40px;
-            padding: 20px 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin: -40px auto 50px;
+            padding: 25px 35px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -104,6 +104,7 @@
         .floating-bar-text h3 {
             font-size: 1.1rem;
             color: var(--text-dark);
+            margin-bottom: 4px;
         }
 
         .floating-bar-text p {
@@ -114,72 +115,73 @@
         .btn-primary {
             background-color: var(--secondary-blue);
             color: var(--white);
-            padding: 12px 24px;
+            padding: 14px 28px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .btn-primary:hover {
             background-color: var(--primary-blue);
+            transform: scale(1.02);
         }
 
-        /* --- SEÇÃO DE CARTÕES (Pontos Turísticos) --- */
-        .section-title {
+        /* --- GRID DE CONTEÚDO --- */
+        .section-header {
             padding: 0 5%;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .section-title h2 {
-            font-size: 2rem;
+        .section-header h2 {
+            font-size: 2.2rem;
             color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title p {
-            color: var(--text-gray);
-            margin-top: 5px;
         }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            padding: 0 5% 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 0 5% 5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .card {
             background: var(--white);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
 
         .card-image {
-            height: 220px;
+            height: 250px;
             position: relative;
-            background-color: #ddd;
+            overflow: hidden;
         }
 
         .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
         }
 
         .badge {
@@ -187,65 +189,59 @@
             top: 15px;
             left: 15px;
             background: rgba(255, 255, 255, 0.95);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
             color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
+            padding: 25px;
             flex-grow: 1;
         }
 
         .card-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             color: var(--text-dark);
+            font-weight: 700;
         }
 
         .card-content p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            line-height: 1.6;
             margin-bottom: 20px;
-            flex-grow: 1;
         }
 
         .card-footer {
             border-top: 1px solid var(--border-color);
-            padding-top: 15px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-gray);
-            font-weight: 500;
+            font-weight: 600;
+            background-color: #fafbfc;
         }
 
-        /* --- RODAPÉ --- */
+        /* --- FOOTER --- */
         footer {
             background-color: var(--white);
             border-top: 1px solid var(--border-color);
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             text-align: center;
             color: var(--text-gray);
-            font-size: 0.9rem;
         }
 
-        footer strong {
-            color: var(--primary-blue);
-        }
+        footer p { margin-bottom: 10px; }
+        footer strong { color: var(--primary-blue); }
 
-        /* Responsividade para telas menores */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .floating-bar { flex-direction: column; gap: 15px; text-align: center; margin-top: -20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .floating-bar { flex-direction: column; text-align: center; gap: 20px; }
             .btn-primary { width: 100%; }
         }
     </style>
@@ -260,89 +256,90 @@
     </nav>
 
     <header class="hero">
-        <h1>Descubra a história de Mogi.</h1>
-        <p>Explore o patrimônio arquitetônico e as praças que contam a trajetória de uma das cidades mais antigas de São Paulo.</p>
+        <h1>Mogi das Cruzes</h1>
+        <p>Um mergulho na história e no patrimônio de uma cidade centenária.</p>
     </header>
 
     <div class="floating-bar">
         <div class="floating-bar-text">
-            <h3>Roteiro pelo Centro Histórico</h3>
-            <p>Conheça os marcos fundamentais da fundação da cidade.</p>
+            <h3>Explore o Centro Histórico</h3>
+            <p>Clique abaixo para conhecer os detalhes de cada local.</p>
         </div>
-        <button class="btn-primary">Explorar Locais &darr;</button>
+        <button class="btn-primary" onclick="document.getElementById('locais').scrollIntoView({behavior: 'smooth'})">Ver Pontos Turísticos</button>
     </div>
 
-    <div class="section-title">
-        <h2>Descubra com um Passeio</h2>
-        <p>Os principais marcos arquitetônicos e religiosos disponíveis para visitação.</p>
+    <div class="section-header" id="locais">
+        <h2>Patrimônio Histórico</h2>
+        <p>Conheça os marcos que moldaram a identidade mogiana.</p>
     </div>
 
     <div class="grid-container">
 
         <article class="card">
             <div class="card-image">
-                <span class="badge">🕒 Século XVII e XVIII</span>
-                <img src="carmo.jpg" alt="Largo do Carmo">
+                <span class="badge">PATRIMÔNIO HISTÓRICO</span>
+                <img src="carmo.png" alt="Igreja do Largo do Carmo">
             </div>
             <div class="card-content">
                 <h3>Largo do Carmo</h3>
-                <p>O Largo do Carmo abriga um dos conjuntos arquitetônicos coloniais mais valiosos do Estado de São Paulo. Formado pelas Igrejas da Ordem Primeira e da Ordem Terceira do Carmo, o complexo preserva a técnica construtiva de taipa de pilão. O local é um verdadeiro museu a céu aberto, guardando altares entalhados em madeira, obras de arte sacra preciosas e memórias de eventos históricos, incluindo a passagem de Dom Pedro I às vésperas da Independência do Brasil.</p>
+                <p>O Largo do Carmo abriga um dos conjuntos arquitetônicos coloniais mais valiosos do Estado de São Paulo. Formado pelas Igrejas da Ordem Primeira e da Ordem Terceira do Carmo, o complexo preserva a técnica de taipa de pilão. É um local de imenso valor histórico, tendo recebido figuras ilustres como Dom Pedro I em sua jornada rumo à Independência.</p>
             </div>
             <div class="card-footer">
-                <span>📍 Centro Histórico</span>
-                <span>📸 Arquitetura Colonial</span>
+                <span>📍 Centro</span>
+                <span>🕒 Séc. XVII/XVIII</span>
             </div>
         </article>
 
         <article class="card">
             <div class="card-image">
-                <span class="badge">🕒 Marco Zero</span>
+                <span class="badge">MARCO ZERO</span>
                 <img src="matriz.jpg" alt="Catedral de Santana">
             </div>
             <div class="card-content">
-                <h3>Praça Benedito Coronel Almeida</h3>
-                <p>Popularmente conhecida como Praça da Matriz, é o coração vibrante e o Marco Zero de Mogi das Cruzes. O espaço é dominado pela imponente Catedral de Santana, cuja arquitetura atual reflete reformas do início do século XX, substituindo a antiga igreja de taipa. A praça não é apenas o principal ponto de encontro dos mogianos, mas também concentra o obelisco comemorativo, o tradicional coreto e o intenso fluxo comercial e cultural que impulsiona o centro da cidade.</p>
+                <h3>Praça da Matriz</h3>
+                <p>Oficialmente Praça Benedito Coronel Almeida, este é o ponto onde Mogi das Cruzes nasceu. A Catedral de Santana, reconstruída no início do século XX sobre o alicerce da antiga igreja, domina a paisagem. A praça é o centro nevrálgico da cidade, onde a fé, a cultura e o comércio se encontram há gerações.</p>
             </div>
             <div class="card-footer">
-                <span>📍 Centro Comercial</span>
-                <span>📸 Catedral de Santana</span>
+                <span>📍 Centro</span>
+                <span>🕒 Fundação da Cidade</span>
             </div>
         </article>
 
         <article class="card">
             <div class="card-image">
-                <span class="badge">🕒 Tradição Religiosa</span>
-                <img src="bom-jesus.jpg" alt="Largo de Bom Jesus">
+                <span class="badge">TRADIÇÃO RELIGIOSA</span>
+                <img src="bom-jesus.jpg" alt="Santuário Bom Jesus">
             </div>
             <div class="card-content">
                 <h3>Largo do Bom Jesus</h3>
-                <p>O Largo abriga o majestoso Santuário do Senhor Bom Jesus, um templo que se destaca por sua grandiosidade e importância espiritual para a região. Originalmente uma modesta capela, a estrutura evoluiu com o crescimento da cidade. O Largo é nacionalmente reconhecido por ser um dos epicentros da tradicional Festa do Divino Espírito Santo de Mogi das Cruzes, uma das manifestações folclóricas e religiosas mais antigas e ricas do país, reunindo milhares de fiéis anualmente.</p>
+                <p>O Largo abriga o Santuário do Senhor Bom Jesus, um dos templos mais queridos da comunidade. É o palco principal das celebrações da centenária Festa do Divino Espírito Santo. A arquitetura do Santuário e a atmosfera do largo refletem a profunda religiosidade e o espírito festivo do povo mogiano.</p>
             </div>
             <div class="card-footer">
                 <span>📍 Área Central</span>
-                <span>📸 Santuário / Festa do Divino</span>
+                <span>🕒 Festa do Divino</span>
             </div>
         </article>
 
         <article class="card">
             <div class="card-image">
-                <span class="badge">🕒 Símbolo Urbano</span>
-                <img src="relogio.jpg" alt="Praça do Relógio">
+                <span class="badge">SÍMBOLO URBANO</span>
+                <img src="relogio.jpg" alt="Relógio Monumental">
             </div>
             <div class="card-content">
                 <h3>Praça Osvaldo Cruz</h3>
-                <p>Reconhecida instantaneamente pelo seu icônico relógio de coluna, a Praça Osvaldo Cruz (a "Praça do Relógio") é um símbolo do ritmo de desenvolvimento urbano e da modernização de Mogi das Cruzes. Estrategicamente localizada próxima à estação de trem, servia como ponto de referência para viajantes e trabalhadores que chegavam à cidade. O relógio monumental representa não apenas a marcação do tempo, mas a transição de Mogi de uma vila colonial para um polo urbano em expansão.</p>
+                <p>Popularmente conhecida como Praça do Relógio, é um ponto de referência crucial próximo à estação ferroviária. O Relógio Monumental simboliza o progresso e a modernização de Mogi, servindo há décadas como ponto de encontro e testemunha silenciosa do crescimento acelerado da metrópole mogiana.</p>
             </div>
             <div class="card-footer">
-                <span>📍 Próximo à Estação</span>
-                <span>📸 Relógio Monumental</span>
+                <span>📍 Estação</span>
+                <span>🕒 Modernismo Urbano</span>
             </div>
         </article>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Todos os direitos reservados. Desenvolvido por <strong>Katsusuke Yamazaki Filho</strong>.</p>
+        <p>&copy; 2026 Todos os direitos reservados.</p>
+        <p>Desenvolvido por <strong>Katsusuke Yamazaki Filho</strong>.</p>
     </footer>
 
 </body>
