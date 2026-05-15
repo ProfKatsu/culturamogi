@@ -3,138 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo Mogi das Cruzes</title>
+    <title>Descubra Mogi das Cruzes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #e67e22;
-            --light: #ecf0f1;
+            --primary-blue: #0f4c81;
+            --secondary-blue: #1e60a3;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
         }
 
-        header {
-            background: var(--primary);
-            color: white;
-            padding: 2rem 1rem;
+        /* --- NAVEGAÇÃO SUPERIOR --- */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-container img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* --- SEÇÃO HERO (Destaque Principal) --- */
+        .hero {
+            /* Usando um gradiente azul caso a imagem de fundo demore a carregar, simulando o site de referência */
+            background: linear-gradient(rgba(15, 76, 129, 0.6), rgba(15, 76, 129, 0.6)), url('matriz.jpg') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 0 20px;
+            color: var(--white);
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
 
-        .landmark {
-            background: white;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* --- BARRA FLUTUANTE (Simulando o buscador da referência) --- */
+        .floating-bar {
+            background: var(--white);
+            max-width: 800px;
+            width: 90%;
+            margin: -40px auto 40px;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .floating-bar-text h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .floating-bar-text p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border: none;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-blue);
+        }
+
+        /* --- SEÇÃO DE CARTÕES (Pontos Turísticos) --- */
+        .section-title {
+            padding: 0 5%;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 0 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
         }
 
-        @media (min-width: 768px) {
-            .landmark { flex-direction: row; }
-            .landmark:nth-child(even) { flex-direction: row-reverse; }
-            .image-box, .content-box { flex: 1; }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
         }
 
-        .image-box {
-            background: #ddd;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .card-image {
+            height: 220px;
+            position: relative;
+            background-color: #ddd;
         }
 
-        .image-box img {
+        .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .content-box {
-            padding: 2rem;
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        h2 { color: var(--accent); margin-top: 0; }
-        
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* --- RODAPÉ --- */
         footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 5%;
             text-align: center;
-            padding: 2rem;
-            background: var(--primary);
-            color: white;
-            margin-top: 4rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--primary-blue);
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .floating-bar { flex-direction: column; gap: 15px; text-align: center; margin-top: -20px; }
+            .btn-primary { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Roteiro Histórico: Mogi das Cruzes</h1>
-    <p>Conheça os marcos da nossa cidade</p>
-</header>
+    <nav>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Bras%C3%A3o_de_Mogi_das_Cruzes.svg/512px-Bras%C3%A3o_de_Mogi_das_Cruzes.svg.png" alt="Brasão de Mogi das Cruzes">
+            <span class="logo-text">Turismo Mogi</span>
+        </div>
+    </nav>
 
-<div class="container">
+    <header class="hero">
+        <h1>Descubra a história de Mogi.</h1>
+        <p>Explore o patrimônio arquitetônico e as praças que contam a trajetória de uma das cidades mais antigas de São Paulo.</p>
+    </header>
 
-    <!-- Largo de Bom Jesus -->
-    <section class="landmark">
-        <div class="image-box">
-            <img src="bom-jesus.jpg" alt="Largo de Bom Jesus">
+    <div class="floating-bar">
+        <div class="floating-bar-text">
+            <h3>Roteiro pelo Centro Histórico</h3>
+            <p>Conheça os marcos fundamentais da fundação da cidade.</p>
         </div>
-        <div class="content-box">
-            <h2>Largo de Bom Jesus</h2>
-            <p>O Largo de Bom Jesus, onde se localiza o Santuário do Senhor Bom Jesus, é um dos pontos mais tradicionais de Mogi. É um local de profunda importância religiosa e palco de festividades tradicionais da cidade.</p>
-        </div>
-    </section>
+        <button class="btn-primary">Explorar Locais &darr;</button>
+    </div>
 
-    <!-- Largo do Carmo -->
-    <section class="landmark">
-        <div class="image-box">
-            <img src="carmo.jpg" alt="Largo do Carmo">
-        </div>
-        <div class="content-box">
-            <h2>Largo do Carmo</h2>
-            <p>Um dos conjuntos arquitetônicos mais valiosos do período colonial paulista. Abriga as igrejas da Ordem Primeira e Terceira do Carmo, guardando séculos de história e arte sacra em suas paredes de taipa.</p>
-        </div>
-    </section>
+    <div class="section-title">
+        <h2>Descubra com um Passeio</h2>
+        <p>Os principais marcos arquitetônicos e religiosos disponíveis para visitação.</p>
+    </div>
 
-    <!-- Praça Matriz -->
-    <section class="landmark">
-        <div class="image-box">
-            <img src="matriz.jpg" alt="Praça da Matriz">
-        </div>
-        <div class="content-box">
-            <h2>Praça Benedito Coronel Almeida (Matriz)</h2>
-            <p>O coração do centro histórico. Ao redor da Catedral de Santana, a praça é o ponto de encontro principal dos mogianos e marca o local onde a vila de Mogi das Cruzes se consolidou.</p>
-        </div>
-    </section>
+    <div class="grid-container">
 
-    <!-- Praça Osvaldo Cruz -->
-    <section class="landmark">
-        <div class="image-box">
-            <img src="relogio.jpg" alt="Praça do Relógio">
-        </div>
-        <div class="content-box">
-            <h2>Praça Osvaldo Cruz (Praça do Relógio)</h2>
-            <p>Conhecida pelo seu icônico relógio de coluna, esta praça é um marco visual da cidade. Localizada próxima à estação de trem, é um símbolo do dinamismo e da passagem do tempo em Mogi.</p>
-        </div>
-    </section>
+        <article class="card">
+            <div class="card-image">
+                <span class="badge">🕒 Século XVII e XVIII</span>
+                <img src="carmo.jpg" alt="Largo do Carmo">
+            </div>
+            <div class="card-content">
+                <h3>Largo do Carmo</h3>
+                <p>O Largo do Carmo abriga um dos conjuntos arquitetônicos coloniais mais valiosos do Estado de São Paulo. Formado pelas Igrejas da Ordem Primeira e da Ordem Terceira do Carmo, o complexo preserva a técnica construtiva de taipa de pilão. O local é um verdadeiro museu a céu aberto, guardando altares entalhados em madeira, obras de arte sacra preciosas e memórias de eventos históricos, incluindo a passagem de Dom Pedro I às vésperas da Independência do Brasil.</p>
+            </div>
+            <div class="card-footer">
+                <span>📍 Centro Histórico</span>
+                <span>📸 Arquitetura Colonial</span>
+            </div>
+        </article>
 
-</div>
+        <article class="card">
+            <div class="card-image">
+                <span class="badge">🕒 Marco Zero</span>
+                <img src="matriz.jpg" alt="Catedral de Santana">
+            </div>
+            <div class="card-content">
+                <h3>Praça Benedito Coronel Almeida</h3>
+                <p>Popularmente conhecida como Praça da Matriz, é o coração vibrante e o Marco Zero de Mogi das Cruzes. O espaço é dominado pela imponente Catedral de Santana, cuja arquitetura atual reflete reformas do início do século XX, substituindo a antiga igreja de taipa. A praça não é apenas o principal ponto de encontro dos mogianos, mas também concentra o obelisco comemorativo, o tradicional coreto e o intenso fluxo comercial e cultural que impulsiona o centro da cidade.</p>
+            </div>
+            <div class="card-footer">
+                <span>📍 Centro Comercial</span>
+                <span>📸 Catedral de Santana</span>
+            </div>
+        </article>
 
-<footer>
-    <p>&copy; 2024 - Projeto Turismo Mogi</p>
-</footer>
+        <article class="card">
+            <div class="card-image">
+                <span class="badge">🕒 Tradição Religiosa</span>
+                <img src="bom-jesus.jpg" alt="Largo de Bom Jesus">
+            </div>
+            <div class="card-content">
+                <h3>Largo do Bom Jesus</h3>
+                <p>O Largo abriga o majestoso Santuário do Senhor Bom Jesus, um templo que se destaca por sua grandiosidade e importância espiritual para a região. Originalmente uma modesta capela, a estrutura evoluiu com o crescimento da cidade. O Largo é nacionalmente reconhecido por ser um dos epicentros da tradicional Festa do Divino Espírito Santo de Mogi das Cruzes, uma das manifestações folclóricas e religiosas mais antigas e ricas do país, reunindo milhares de fiéis anualmente.</p>
+            </div>
+            <div class="card-footer">
+                <span>📍 Área Central</span>
+                <span>📸 Santuário / Festa do Divino</span>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-image">
+                <span class="badge">🕒 Símbolo Urbano</span>
+                <img src="relogio.jpg" alt="Praça do Relógio">
+            </div>
+            <div class="card-content">
+                <h3>Praça Osvaldo Cruz</h3>
+                <p>Reconhecida instantaneamente pelo seu icônico relógio de coluna, a Praça Osvaldo Cruz (a "Praça do Relógio") é um símbolo do ritmo de desenvolvimento urbano e da modernização de Mogi das Cruzes. Estrategicamente localizada próxima à estação de trem, servia como ponto de referência para viajantes e trabalhadores que chegavam à cidade. O relógio monumental representa não apenas a marcação do tempo, mas a transição de Mogi de uma vila colonial para um polo urbano em expansão.</p>
+            </div>
+            <div class="card-footer">
+                <span>📍 Próximo à Estação</span>
+                <span>📸 Relógio Monumental</span>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Todos os direitos reservados. Desenvolvido por <strong>Katsusuke Yamazaki Filho</strong>.</p>
+    </footer>
 
 </body>
 </html>
