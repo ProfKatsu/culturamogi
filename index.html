@@ -129,20 +129,69 @@
             transform: scale(1.02);
         }
 
-        /* --- GRID DE CONTEÚDO --- */
+        /* --- TÍTULO DA SEÇÃO --- */
         .section-header {
             padding: 0 5%;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
         }
 
         .section-header h2 {
             font-size: 2.2rem;
             color: var(--text-dark);
+            margin-bottom: 10px;
         }
 
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* --- SEÇÃO DO MAPA --- */
+        .map-section {
+            max-width: 1000px;
+            margin: 0 auto 4rem auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .map-container {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .btn-download {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        /* --- GRID DE CONTEÚDO --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -268,6 +317,7 @@
             .hero h1 { font-size: 2.2rem; }
             .floating-bar { flex-direction: column; text-align: center; gap: 20px; }
             .btn-primary { width: 100%; }
+            .section-header { text-align: left; }
         }
     </style>
 </head>
@@ -293,8 +343,15 @@
     </div>
 
     <div class="section-header" id="locais">
-        <h2>Patrimônio Histórico</h2>
-        <p>Conheça os marcos que moldaram a identidade mogiana.</p>
+        <h2>Pilares da Cultura Mogiana</h2>
+        <p>Siga o nosso roteiro ilustrado e descubra a essência do Centro Histórico de Mogi das Cruzes.</p>
+    </div>
+
+    <div class="map-section">
+        <div class="map-container">
+            <img src="mapa-roteiro.jpg" alt="Mapa Turístico do Roteiro Histórico de Mogi das Cruzes">
+        </div>
+        <a href="mapa-roteiro.jpg" target="_blank" class="btn-download">🔍 Ampliar / Baixar Mapa</a>
     </div>
 
     <div class="grid-container">
@@ -367,7 +424,7 @@
 
     <footer>
         <p>© 2026 Todos os direitos reservados.</p>
-        <p>Desenvolvido por <strong>Camila Silva Murata</strong>.</p>
+        <p>Desenvolvido por <strong>Katsusuke Yamazaki Filho</strong>.</p>
     </footer>
 
 </body>
